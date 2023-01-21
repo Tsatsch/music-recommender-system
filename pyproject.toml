@@ -1,0 +1,102 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "music-recommender-system"
+version = "0.1.0"
+description = "Music Recommender System based on genre and song metadata."
+authors = ["Tsatsch <sshsmnv2000@gmail.com>"]
+readme = "README.md"
+packages = [{include = "music_recommender_system"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+psycopg2 = "^2.9.5"
+pandas = "^1.5.3"
+spotipy = "^2.22.0"
+sklearn = "^0.0.post1"
+scikit-learn = "^1.2.0"
+tabulate = "^0.9.0"
+numpy = "^1.24.1"
+requests = "^2.28.2"
+joblib = "^1.2.0"
+beautifulsoup4 = "^4.11.1"
+urllib3 = "^1.26.14"
+aiohttp = "^3.8.3"
+python-dotenv = "^0.21.0"
+progressbar = "^2.5"
+
+[tool.poetry.group.tox.dependencies]
+tox = "^4.3.5"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+black = "^22.12.0"
+pytest-cov = "^4.0.0"
+mypy = "^0.991"
+isort = "^5.11.4"
+autoflake = "1.7.7"
+flakeheaven = "^3.2.1"
+pytest-html-reporter = "^0.2.9"
+dlint = "^0.13.0"
+flake8-bugbear = "^23.1.20"
+flake8-simplify = "^0.19.3"
+
+[tool.pytest.ini_options]
+minversion = "7.2.0"
+pythonpath = ["src"]
+testpaths = ["tests"]
+console_output_style =  "progress"
+addopts = """\
+    -rA \
+    -q \
+    --cache-clear \
+    --disable-pytest-warnings \
+    --no-header \
+    --show-capture=no
+    --html-report=tests/reports/results \
+    --title='Pytest Tests Results' \
+    --cov=src tests/ \
+    --cov-report html:tests/reports/coverage 
+    """
+
+[tool.autoflake]
+ignore-init-module-imports = true
+remove-unused-variables = true
+remove-all-unused-imports = true
+in-place = true
+recursive = true
+
+[tool.isort]
+profile = "black"
+line_length = 88
+order_by_type = true
+ensure_newline_before_comments = true
+only_modified = true
+skip_glob = ["tests/reports/*"]
+
+[tool.mypy]
+warn_unreachable = true
+error_summary = true
+ignore_missing_imports = true
+# ignore_errors = true
+allow_untyped_globals = true
+html_report = "tests/reports/static-typing"
+
+[tool.black]
+line_length = 88 # default value
+
+[tool.flakeheaven]
+max_line_length = 88
+show_source = true
+
+[tool.flakeheaven.plugins]
+# https://flakeheaven.readthedocs.io/en/latest/plugins.html
+pyflakes = ["+*"]
+pycodestyle = ["+*"]
+# https://github.com/DmytroLitvinov/awesome-flake8-extensions
+dlint = ["+*"]
+flake8-bugbear = ["+*"]
+flake8-simplify = ["+*"]
