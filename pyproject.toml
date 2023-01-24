@@ -32,35 +32,14 @@ tox = "^4.3.5"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.1"
 black = "^22.12.0"
-pytest-cov = "^4.0.0"
 mypy = "^0.991"
 isort = "^5.11.4"
 autoflake = "1.7.7"
 flakeheaven = "^3.2.1"
-pytest-html-reporter = "^0.2.9"
 dlint = "^0.13.0"
 flake8-bugbear = "^23.1.20"
 flake8-simplify = "^0.19.3"
-
-[tool.pytest.ini_options]
-minversion = "7.2.0"
-pythonpath = ["src"]
-testpaths = ["tests"]
-console_output_style =  "progress"
-addopts = """\
-    -rA \
-    -q \
-    --cache-clear \
-    --disable-pytest-warnings \
-    --no-header \
-    --show-capture=no
-    --html-report=tests/reports/results \
-    --title='Pytest Tests Results' \
-    --cov=src tests/ \
-    --cov-report html:tests/reports/coverage 
-    """
 
 [tool.autoflake]
 ignore-init-module-imports = true
