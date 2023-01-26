@@ -4,10 +4,8 @@ import numpy as np
 import requests
 import joblib
 import json
-import psycopg2
 import pandas as pd
 import copy
-import spotipy
 from tabulate import tabulate
 
 
