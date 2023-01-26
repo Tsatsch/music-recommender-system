@@ -14,6 +14,13 @@ Since the old repository is moved to the new one (this), some paths in the code 
 
 In the future it is planned to run the Python recommenders (not the Jupyter Notebook) via a bash script that will setup and env and install dependencies in advance.
 
+## Used Services
+- [PostgreSQL](https://www.postgresql.org/)
+- [Spotify](https://developer.spotify.com/)
+- [ipstack](https://ipstack.com/)
+- [openweathermap](https://openweathermap.org/)
+
+
 ## Setup
 You need to install poetry first. Please refer to [poetry documentation](https://python-poetry.org/docs/#installation). 
 After that you can install the dependencies with the following bash command:
